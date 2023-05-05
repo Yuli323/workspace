@@ -1,0 +1,17 @@
+package project2__2;
+
+public class Main {
+
+    public static void main(String[] args) {
+        DeckOfCard deckOfCard ;
+        deckOfCard = new DeckOfCard();
+        
+        //shuffle 
+        deckOfCard.shuffle();
+        deckOfCard.dealCard();
+        
+        //
+        deckOfCard.shuffle();
+        deckOfCard.dealCard();
+    }
+}

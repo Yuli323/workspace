@@ -1,0 +1,73 @@
+package project2;
+
+import java.security.SecureRandom;
+import java.util.Scanner;
+
+public class Main {
+
+    public static void main(String[] args) {
+        String[] faces = { "A", "2", "3", "4", "5", "6", "7", "8", "9", "10", "J", "Q", "K" };
+        String[] suits = { "Clubs", "Diamonds", "Hearts", "Spades" };
+        String[] deckOfCardFace = new String[52];
+        String[] deckOfCardSuit = new String[52];
+        
+        //
+        for(int i = 0; i < deckOfCardFace.length; i++) {
+            deckOfCardFace[i] = faces [i %13];
+            deckOfCardSuit[i] =  suits[i/13];
+        }
+        //suffle
+        SecureRandom randomNumbers = new SecureRandom();
+        for(int i = 0; i < deckOfCardFace.length; i++) {
+            int randNum = randomNumbers.nextInt(52);
+            String tempFace = deckOfCardFace[randNum];
+            String tempSuit = deckOfCardSuit[randNum];
+            
+            deckOfCardFace[randNum]= deckOfCardFace[i]; 
+            deckOfCardSuit[randNum]= deckOfCardSuit[i]; 
+            
+            deckOfCardFace[i]= tempFace;
+            deckOfCardSuit[i]= tempSuit; 
+        }
+     //數字
+       // Scanner  scanner = new Scanner(System.in);
+        int Count = 0;
+        for(int t = 0; t <3; t++) {
+            System.out.println("Please enter the number");
+           // int Num = scanner.nextInt();
+            //int NumOfCards = Num; 
+            //for(int i = 0; i < NumOfCards; i++) {
+                String face = deckOfCardFace[Count];
+                String suit = deckOfCardSuit[Count];
+                Count++;
+                System.out.println("face:  "+ face+"  suit:  "+suit);
+            }
+            System.out.println("---");
+            
+            
+            
+            
+            
+            for(int i = 0; i < deckOfCardFace.length; i++) {
+                int randNum = randomNumbers.nextInt(52-Count) + Count;
+                String tempFace = deckOfCardFace[randNum];
+                String tempSuit = deckOfCardSuit[randNum];
+                
+                deckOfCardFace[randNum]= deckOfCardFace[i]; 
+                deckOfCardSuit[randNum]= deckOfCardSuit[i]; 
+                
+                deckOfCardFace[i]= tempFace;
+                deckOfCardSuit[i]= tempSuit; 
+            }
+            int NumOfCard = 2;
+            for(int i = 0; i <3; i++) {
+                System.out.println("Please enter the number");
+                    String face = deckOfCardFace[Count];
+                    String suit = deckOfCardSuit[Count];
+                    Count++;
+                    System.out.println("face:  "+ face+"  suit:  "+suit);
+                }
+       } 
+    }
+
+
